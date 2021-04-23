@@ -70,30 +70,32 @@ const QuoteContainer = () => {
         />
       )}
       {player1.name && player2.name ? <Quote quote={quote} /> : null}
-      {player1.name && player2.name ? (
-        <Button
-          name={"Trump"}
-          fetchQuotes={fetchQuotes}
-          players={[player1, player2]}
-          setPlayers={[setPlayer1, setPlayer2]}
-          turn={turn}
-          setTurn={setTurn}
-          updateScore={updateScore}
-          quoter={quoter}
-        />
-      ) : null}
-      {player1.name && player2.name ? (
-        <Button
-          name={"Kanye"}
-          fetchQuotes={fetchQuotes}
-          players={[player1, player2]}
-          setPlayers={[setPlayer1, setPlayer2]}
-          turn={turn}
-          setTurn={setTurn}
-          updateScore={updateScore}
-          quoter={quoter}
-        />
-      ) : null}
+      <div className="buttons">
+        {player1.name && player2.name ? (
+          <Button
+            name={"Trump"}
+            fetchQuotes={fetchQuotes}
+            players={[player1, player2]}
+            setPlayers={[setPlayer1, setPlayer2]}
+            turn={turn}
+            setTurn={setTurn}
+            updateScore={updateScore}
+            quoter={quoter}
+          />
+        ) : null}
+        {player1.name && player2.name ? (
+          <Button
+            name={"Kanye"}
+            fetchQuotes={fetchQuotes}
+            players={[player1, player2]}
+            setPlayers={[setPlayer1, setPlayer2]}
+            turn={turn}
+            setTurn={setTurn}
+            updateScore={updateScore}
+            quoter={quoter}
+          />
+        ) : null}
+      </div>
     </>
   );
 };
