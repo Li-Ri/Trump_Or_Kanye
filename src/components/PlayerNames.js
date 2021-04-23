@@ -16,7 +16,7 @@ const PlayerNames = ({
 
   return (
     <>
-      <form action="" class="form" onSubmit={setNames}>
+      <form action="" className="form" onSubmit={setNames}>
         <input type="text" name="player1" />
         <input type="text" name="player2" />
         <input type="submit" />

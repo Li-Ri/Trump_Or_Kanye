@@ -3,7 +3,9 @@ import PlayerNames from "../components/PlayerNames";
 import ScoreBoard from "../components/ScoreBoard";
 
 const QuoteContainer = () => {
-  const [quote, setQuote] = useState();
+  const [turn, setTurn] = useState(0);
+  const [quote, setQuote] = useState("");
+  const [quoter, setQuoter] = useState("");
   const [player1, setPlayer1] = useState({
     name: "",
     score: 0,
@@ -12,6 +14,24 @@ const QuoteContainer = () => {
     name: "",
     score: 0,
   });
+
+  const fetchQuotes = () => {
+    const random = Math.floor(Math.random() * 2);
+
+    if (random === 0) {
+      fetch("https://api.kanye.rest/")
+        .then((res) => res.json())
+        .then((resJson) => setQuote(resJson.quote));
+      setQuoter("Kanye");
+    } else {
+      fetch("https://api.whatdoestrumpthink.com/api/v1/quotes/random")
+        .then((res) => {
+          return res.json();
+        })
+        .then((resJson) => setQuote(resJson.message));
+      setQuoter("Trump");
+    }
+  };
 
   const setPlayerName = (player, setPlayer, newName) => {
     const newObj = {
@@ -29,9 +49,14 @@ const QuoteContainer = () => {
     setPlayer(newObj);
   };
 
+  useEffect(() => {
+    fetchQuotes();
+  }, []);
+
   return (
     <>
-      <h1>I am the Quote Container</h1>
+      <h1>{quote}</h1>
+
       {player1.name && player2.name ? (
         <ScoreBoard
           player1={player1}
