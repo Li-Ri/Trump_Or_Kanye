@@ -1,6 +1,6 @@
 import React from "react";
 
-const ScoreBoard = ({ player1, player2, updateScore }) => {
+const ScoreBoard = ({ player1, player2 }) => {
   return (
     <>
       <div className="score-board">

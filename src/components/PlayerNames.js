@@ -8,6 +8,7 @@ const PlayerNames = ({
   player2,
 }) => {
   const setNames = (event) => {
+    event.preventDefault();
     const player1Name = event.target.player1.value;
     const player2Name = event.target.player2.value;
     setPlayerName(player1, setPlayer1, player1Name);

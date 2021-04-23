@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import PlayerNames from "../components/PlayerNames";
 import ScoreBoard from "../components/ScoreBoard";
+import Quote from "../components/Quote";
+import Button from "../components/Button";
 
 const QuoteContainer = () => {
   const [turn, setTurn] = useState(0);
@@ -17,7 +19,7 @@ const QuoteContainer = () => {
 
   const fetchQuotes = () => {
     const random = Math.floor(Math.random() * 2);
-
+    console.log(random);
     if (random === 0) {
       fetch("https://api.kanye.rest/")
         .then((res) => res.json())
@@ -55,14 +57,8 @@ const QuoteContainer = () => {
 
   return (
     <>
-      <h1>{quote}</h1>
-
       {player1.name && player2.name ? (
-        <ScoreBoard
-          player1={player1}
-          player2={player2}
-          updateScore={updateScore}
-        />
+        <ScoreBoard player1={player1} player2={player2} />
       ) : null}
       {player1.name && player2.name ? null : (
         <PlayerNames
@@ -73,6 +69,31 @@ const QuoteContainer = () => {
           player2={player2}
         />
       )}
+      {player1.name && player2.name ? <Quote quote={quote} /> : null}
+      {player1.name && player2.name ? (
+        <Button
+          name={"Trump"}
+          fetchQuotes={fetchQuotes}
+          players={[player1, player2]}
+          setPlayers={[setPlayer1, setPlayer2]}
+          turn={turn}
+          setTurn={setTurn}
+          updateScore={updateScore}
+          quoter={quoter}
+        />
+      ) : null}
+      {player1.name && player2.name ? (
+        <Button
+          name={"Kanye"}
+          fetchQuotes={fetchQuotes}
+          players={[player1, player2]}
+          setPlayers={[setPlayer1, setPlayer2]}
+          turn={turn}
+          setTurn={setTurn}
+          updateScore={updateScore}
+          quoter={quoter}
+        />
+      ) : null}
     </>
   );
 };
