@@ -13,12 +13,8 @@ const Button = ({
   const checkScore = (player) => {
     console.log(player.name);
     if (player.score >= 4) {
-      console.log(`${player.name} wins`);
-      const newObj = {
-        ...player,
-      };
-      newObj.score = 0;
-      setPlayers[turn](newObj);
+      setPlayers[0](0);
+      setPlayers[1](0);
     } else return;
   };
   const handleClick = (event) => {
@@ -28,7 +24,7 @@ const Button = ({
       setTurn(Number(!turn));
       fetchQuotes();
     } else {
-      console.log("Wrong");
+      setTurn(Number(!turn));
       fetchQuotes();
     }
   };

@@ -60,7 +60,7 @@ const QuoteContainer = () => {
     <>
       <h1 id="main-title">Trump or Kanye</h1>
       {player1.name && player2.name ? (
-        <ScoreBoard player1={player1} player2={player2} />
+        <ScoreBoard player1={player1} player2={player2} turn={turn} />
       ) : null}
       {player1.name && player2.name ? null : (
         <PlayerNames
