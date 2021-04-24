@@ -1,4 +1,6 @@
 import React from "react";
+import kanye from "../kanye.png";
+import donny from "../donny.png";
 
 const PlayerNames = ({
   setPlayer1,
@@ -17,11 +19,29 @@ const PlayerNames = ({
 
   return (
     <>
-      <form action="" className="form" onSubmit={setNames}>
-        <input type="text" name="player1" />
-        <input type="text" name="player2" />
-        <input type="submit" />
-      </form>
+      <div className="player-names-container">
+        <img src={kanye} alt="" className="head-img rotate" />
+        <form action="" className="form" onSubmit={setNames}>
+          <input
+            type="text"
+            className="player-input"
+            name="player1"
+            placeholder="Enter Player 1 Name"
+          />
+          <input
+            type="text"
+            className="player-input"
+            name="player2"
+            placeholder="Enter Player 2 Name"
+          />
+          <input
+            className="player-input-button"
+            type="submit"
+            value="Let's Play!!"
+          />
+        </form>
+        <img src={donny} alt="" className="head-img-donny rotate" />
+      </div>
     </>
   );
 };

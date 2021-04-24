@@ -3,6 +3,7 @@ import PlayerNames from "../components/PlayerNames";
 import ScoreBoard from "../components/ScoreBoard";
 import Quote from "../components/Quote";
 import Button from "../components/Button";
+import "../App.css";
 
 const QuoteContainer = () => {
   const [turn, setTurn] = useState(0);
@@ -57,6 +58,7 @@ const QuoteContainer = () => {
 
   return (
     <>
+      <h1 id="main-title">Trump or Kanye</h1>
       {player1.name && player2.name ? (
         <ScoreBoard player1={player1} player2={player2} />
       ) : null}
