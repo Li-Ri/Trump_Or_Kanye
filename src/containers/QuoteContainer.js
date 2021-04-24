@@ -98,6 +98,7 @@ const QuoteContainer = () => {
           />
         ) : null}
       </div>
+      {player1.score || player2.score === 3 ? <h2>STOP THE COUNT!!</h2> : null}
     </>
   );
 };

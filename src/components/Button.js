@@ -13,8 +13,15 @@ const Button = ({
   const checkScore = (player) => {
     console.log(player.name);
     if (player.score >= 4) {
-      setPlayers[0](0);
-      setPlayers[1](0);
+      setPlayers[0]({
+        name: "",
+        score: 0,
+      });
+      setPlayers[1]({
+        name: "",
+        score: 0,
+      });
+      setTurn(0);
     } else return;
   };
   const handleClick = (event) => {
