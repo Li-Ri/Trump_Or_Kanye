@@ -3,6 +3,7 @@ import PlayerNames from "../components/PlayerNames";
 import ScoreBoard from "../components/ScoreBoard";
 import Quote from "../components/Quote";
 import Button from "../components/Button";
+import Rules from "../components/Rules";
 import "../App.css";
 
 const QuoteContainer = () => {
@@ -71,6 +72,7 @@ const QuoteContainer = () => {
           player2={player2}
         />
       )}
+      {player1.name && player2.name ? null : <Rules />}
       {player1.name && player2.name ? <Quote quote={quote} /> : null}
       <div className="buttons">
         {player1.name && player2.name ? (
