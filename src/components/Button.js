@@ -30,7 +30,12 @@ const Button = ({
   };
   return (
     <>
-      <input type="submit" value={name} onClick={handleClick} />
+      <input
+        type="submit"
+        value={name}
+        onClick={handleClick}
+        className="btn-choice"
+      />
     </>
   );
 };
